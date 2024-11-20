@@ -1,0 +1,140 @@
+
+Technical Design Document Template
+Name: Jennifer Hache
+Date Created: 11/15/2024
+
+Program Description processes a dataset of student grades from a CSV file, calculates various statistics, and then outputs relevant information about the performance of students across multiple exams.
+
+
+Functions used in the Program (list in order as they are called):
+1. Function Name: get_data(filename)
+Description: Reads a CSV file containing exam data. converts the list into a NumPy array
+Parameters: filename
+A string that contains the exam data – name of CSV file
+Variables: [Name and description of the variables used in the function]
+Data: A list used to store the grades
+File: The file object created – in r mode
+Csvreader: CSV reader object that parses the CSV file.
+Header: skipped but first row of the CSV file.
+Row: Each individual row from the CSV file – student’s grade
+
+Logical Steps: [Describe the logical steps of your function]
+Create empty list that stores student’s grades
+Open CSV file
+Open CSV file as reader
+Skip the header from the CSV file because it wont be used.
+Create loop to get grades (index 2), convert grades to floating point numbers.
+Add list of grades to data list.
+
+Returns: numpy array representing the grades of students across multiple exams.
+
+2. Function Name: calc_statistics(exam_data)
+Description: Calculates and prints statistical functions (mean, median, standard deviation, minimum, and maximum) for the three exams.
+Parameters: exam_data
+Numpy array containing the grades for each student across multiple exams
+Variables:
+Exams: A list containing the names of the exams and the one processed.
+exam_grades: A 1D numpy array containing the grades of all students.
+Mean: mean of grades
+median: median grades
+std_dev: The standard deviation of the grades 
+min_grade: minimum grade.
+max_grade: maximum grade
+ 
+Logical Steps:
+Create list of names for exams (1,2,3)
+Create loop to loop through each exam
+Get grades from exam_data array
+Calculate the statistics list and then print them
+
+Returns: prints the statistical information for each exam.
+
+3. Function Name: all_statistics(exam_data)
+Description: Calculates and prints overall statistics for all exams (overall)
+Parameters: exam_data
+A numpy array containing the grades for each student for the three exams
+Variables: 
+exam_data: numpy array containing the grades of students across all three exams.
+all_grades: A 1D numpy array containing all grades flattened into a single array 
+mean_grade: mean of all grades combined.
+median_grade: median of all grades combined.
+std_deviation: standard deviation of all grades combined.
+min_grade: minimum grade across all exams.
+max_grade: maximum grade across all exams.
+
+Logical Steps: 
+Flatten the exam_data array into a 1D array using exam_data.flatten(). calculate statistics for all grades combined.
+calculate the following statistics then print the overall results
+
+Returns: prints the statistics for all grades combined from all the exams
+
+
+
+
+4. Function Name: pass_fail_counts(exam_data)
+Description: Calculates and prints the number of students passing and failing each exam. Passing grade of exam has to be >=60.
+Parameters: exam_data
+Numpy array containing the grades for each student for their three exams and where each column corresponds to an exam, and each row corresponds to a student's grades.
+
+Variables: 
+exam_data: The numpy array containing the grades of students for all three exams.
+pass_threshold: The passing grade of atleast 60%.
+pass_counts: A 1D numpy array that stores the number of students passing each exam.
+fail_counts: A 1D numpy array that stores the number of students failing each exam.
+exams: A list containing the names of the exams.
+i: The index of the current exam in the loop 
+exam: name of the current exam processed 
+
+Logical Steps: 
+define the passing grade as 60% 
+calculate the passing and failing numbers of students
+loop through each exam. Print the passing and failing results
+Returns: prints the number of students passing and failing each exam.
+
+5. Function Name: overall_pass_percentage(exam_data)
+Description: Calculates and prints the overall pass percentage for all exams
+Parameters: exam_data
+Numpy array containing the grades for each student for their three exams. 
+Used to calculate the overall pass percentage (60%).
+
+Variables:
+exam_data: numpy array containing the grades of students.
+pass_grade: passing grade of 60
+total_passes: total number of passing grades across all exams (np.sum)
+total_grades: total number of grades
+pass_percentage: pass percentage calculated 
+
+
+
+Logical Steps: 
+define the passing grade of 60
+calculate the total of passing grades
+calculate the total number of grades
+calculate the overall passing percentage then print results
+Returns: prints the overall pass percentage for all the grades combined
+
+6. Function Name: main() 
+Description: loads the exam data from a CSV file, then calls other functions.
+Parameters: none
+Variables: 
+filename: name of the CSV file to be loaded 
+exam_data: the numpy array containing the grades of students for the three exams. Call the get_data() function.
+
+Logical Steps: 
+Set the filename to 'grades.csv'.
+Call the get_data() function to load the exam data from the CSV file and store it in exam_data.
+Print the first few rows of the dataset 
+Call the calc_statistics() function to print statistics for each exam.
+Call the all_statistics() function to print overall statistics for all grades combined.
+Call the pass_fail_counts() function to print the number of students passing and failing each exam.
+Call the overall_pass_percentage() function to print the overall pass percentage across all exams.
+
+Returns: prints all of the outputs generated by the other functions
+
+
+
+Link to your repository: www.yourrepository.com
+https://github.com/Jhache06/JenniferHache_Chapter-12_A.git
+
+
+
